@@ -1,0 +1,20 @@
+[modelo] openai:gpt-4o-mini  [guardrail de entrada ligado]
+
+[C2_ferias_com_venda] caminho: receber -> proteger_entrada -> extrair -> identificar_servidor -> calcular_periodo -> escala -> financeiro -> normas -> consolidar -> redigir_despacho -> validar -> aprovacao_chefia -> redigir_despacho -> validar -> aprovacao_chefia -> registrar
+[C2_ferias_com_venda] resultado: registrado  protocolo: b7b6f485
+[C2_ferias_com_venda] despacho: **DESPACHO**
+
+**Matrícula:** 1002  
+**Período:** 2027-04-12 a 2027-04-26  
+**Decisão:** Deferido  
+**Normas Aplicáveis:** N1, N2, N3  
+
+O pedido de férias de Bruno Castro foi analisado e está em conformidade com as normas vigentes. O servidor possui saldo suficiente de 30 dias de férias, e a venda de 10 dias está dentro do limite permitido. O período solicitado não apresenta conflitos com a escala da equipe, e o retorno ao trabalho está programado para 27 de abril de 2027.
+
+**Cálculo da Venda de Férias:**  
+- **Dias Vendidos:** 10  
+- **Venda Total:** R$ 3.166,67  
+
+O pedido pode ser processado normalmente, sem necessidade de aprovação da chefia.
+
+Ratificado pela chefia 1010 (N8).

@@ -1,0 +1,2 @@
+[modelo] openai:gpt-4o-mini  [guardrail de entrada ligado]
+[C11_diaria_exterior] nada pausado

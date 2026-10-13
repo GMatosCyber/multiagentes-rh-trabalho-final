@@ -1,0 +1,30 @@
+[retry] tentativa 1 falhou: <urlopen error offline>
+[retry] tentativa 2 falhou: <urlopen error offline>
+[retry] tentativa 3 falhou: <urlopen error offline>
+[retry] tentativa 1 falhou: <urlopen error offline>
+[retry] tentativa 1 falhou: <urlopen error offline>
+[retry] tentativa 2 falhou: <urlopen error offline>
+[retry] tentativa 2 falhou: <urlopen error offline>
+[retry] tentativa 3 falhou: <urlopen error offline>
+[retry] tentativa 3 falhou: <urlopen error offline>
+[retry] tentativa 1 falhou: <urlopen error offline>
+[retry] tentativa 2 falhou: <urlopen error offline>
+[retry] tentativa 3 falhou: <urlopen error offline>
+test_01_doze_casos_mcp_real (test_integracao.Integracao.test_01_doze_casos_mcp_real) ... ok
+test_02_autorizacao_antes_de_idempotencia (test_integracao.Integracao.test_02_autorizacao_antes_de_idempotencia) ... ok
+test_03_saida_invalida_nao_grava (test_integracao.Integracao.test_03_saida_invalida_nao_grava) ... ok
+test_04_datas_invalidas_e_diaria_incompleta (test_integracao.Integracao.test_04_datas_invalidas_e_diaria_incompleta) ... ok
+test_05_decisao_redator_nao_substitui_regra (test_integracao.Integracao.test_05_decisao_redator_nao_substitui_regra) ... ok
+test_06_persistencia_entre_processos (test_integracao.Integracao.test_06_persistencia_entre_processos) ... ok
+test_07_auditoria_sem_segredos (test_integracao.Integracao.test_07_auditoria_sem_segredos) ... ok
+test_08_contas_N2_N7 (test_integracao.Integracao.test_08_contas_N2_N7) ... ok
+test_09_sugestoes_respeitam_N3_N5 (test_integracao.Integracao.test_09_sugestoes_respeitam_N3_N5) ... ok
+test_10_férias_nao_confundem_corridos_com_uteis (test_integracao.Integracao.test_10_férias_nao_confundem_corridos_com_uteis) ... ok
+test_11_abono_deferido_nao_exige_chefia (test_integracao.Integracao.test_11_abono_deferido_nao_exige_chefia) ... ok
+test_12_sugestao_deve_usar_datas_verificadas (test_integracao.Integracao.test_12_sugestao_deve_usar_datas_verificadas) ... ok
+test_13_status_N8_vem_do_codigo (test_integracao.Integracao.test_13_status_N8_vem_do_codigo) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 32.618s
+
+OK

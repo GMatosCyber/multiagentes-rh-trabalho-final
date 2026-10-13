@@ -1,0 +1,182 @@
+[modelo] openai:gpt-4o-mini  [guardrail de entrada ligado]
+
+[C1_abono_simples] caminho: receber -> proteger_entrada -> extrair -> identificar_servidor -> calcular_periodo -> escala -> financeiro -> normas -> consolidar -> redigir_despacho -> validar -> registrar
+[C1_abono_simples] resultado: registrado  protocolo: ae788d33
+[C1_abono_simples] despacho: **Despacho**
+
+**Matrícula:** 1001  
+**Início:** 2027-04-09  
+**Fim:** 2027-04-09  
+**Decisão:** Deferido  
+
+### Regras Aplicáveis ao Pedido de Abono
+1. **Regra N6**: O abono (folga) é de **1 dia útil** por pedido, limitado ao número de `abonos_restantes`. No caso, Ana Ribeiro possui 5 abonos restantes, o que permite o pedido. Além disso, o abono não pode cair em fim de semana nem em feriado. Como a data solicitada (09/04/2027) é uma sexta-feira, e não é um feriado, o pedido é válido.
+
+### Violações Objetivas
+Não há violações registradas para este pedido.
+
+### Parecer da Escala
+Não há conflito N5. O pedido de abono para o dia 9 de abril de 2027 pode ser considerado, pois não há afastamentos na equipe que se sobreponham a esse período.
+
+[C2_ferias_com_venda] caminho: receber -> proteger_entrada -> extrair -> identificar_servidor -> calcular_periodo -> escala -> financeiro -> normas -> consolidar -> redigir_despacho -> validar
+[C2_ferias_com_venda] PAUSADO em ('aprovacao_chefia',): Aprova o despacho?
+   chefia imediata: 1010
+PEDIDO: {'tipo': 'ferias', 'matricula': '1002', 'data_inicio': '2027-04-12', 'data_fim': '2027-04-26', 'dias_vendidos': 10, 'destino': None, 'tipo_destino': None, 'justificativa': ''}
+SERVIDOR: {'matricula': '1002', 'nome': 'Bruno Castro', 'cargo': 'Escrivão', 'equipe': 'Plantão A', 'saldo_ferias_dias': 30, 'abonos_restantes': 3, 'chefia': '1010'}
+PERÍODO: {'inicio': '2027-04-12', 'fim': '2027-04-26', 'dias_corridos': 15, 'dias_uteis': 10, 'feriados_no_periodo': {'2027-04-21': 'Tiradentes'}, 'retorno': '2027-04-27', 'inicio_permitido_n3': True, 'fonte_feriados': 'brasilapi'}
+ESCALA DA EQUIPE: {'equipe': 'Plantão A', 'tamanho_equipe': 3, 'limite_afastados': 1, 'afastamentos': []}
+DESPACHO: **Despacho**
+
+**Matrícula:** 1002  
+**Início:** 2027-04-12  
+**Fim:** 2027-04-26  
+**Decisão:** Deferido  
+
+### Regras Aplicáveis ao Pedido de Férias
+1. **N1:** O servidor possui um saldo de férias de 30 dias, e as férias podem ser divididas em até 3 períodos, sendo que nenhum período pode ter menos de 5 dias. O pedido de férias abrange 15 dias corridos, o que é permitido.
+2. **N2:** O servidor pode vender até 10 dias de férias. O total de dias (10) não excede o saldo disponível (30 dias).
+3. **N3:** As férias não podem começar nos 2 dias que antecedem um feriado ou um fim de semana. O pedido inicia em uma segunda-feira (12 de abril de 2027), sem impedimentos.
+
+### Parecer da Escala
+Não há conflito N5. O pedido de férias de Bruno Castro pode ser considerado, pois não há afastamentos na equipe durante o período solicitado.
+
+### Análise Financeira
+**Servidor:** Bruno Castro  
+**Período de Férias:** 12 de abril de 2027 a 26 de abril de 2027  
+**Venda Total:** R$ 3.166,67  
+
+### Conclusão
+O pedido de venda de férias de Bruno Castro está aprovado, e o valor total a ser recebido é de R$ 3.166,67.
+   retome com: python etapa07_grafo.py --retomar C2_ferias_com_venda sim|"nao:motivo" <quem>
+
+[C3_dado_de_saude] caminho: receber -> proteger_entrada -> recusar
+[C3_dado_de_saude] resultado: recusado  protocolo: None
+[C3_dado_de_saude] despacho: Por segurança, não envie CPF por este canal. Reenvie o pedido informando só a matrícula.
+
+[C4_fora_do_escopo] caminho: receber -> proteger_entrada -> recusar
+[C4_fora_do_escopo] resultado: recusado  protocolo: None
+[C4_fora_do_escopo] despacho: Este canal atende apenas pedidos de férias, abono e diária.
+
+[C5_sem_matricula] caminho: receber -> proteger_entrada -> extrair -> pedir_dados
+[C5_sem_matricula] resultado: pediu_dados  protocolo: None
+[C5_sem_matricula] despacho: Para seguir, informe a matrícula e as datas exatas (AAAA-MM-DD).
+
+[C6_conflito_de_escala] caminho: receber -> proteger_entrada -> extrair -> identificar_servidor -> calcular_periodo -> escala -> financeiro -> normas -> consolidar -> redigir_despacho -> validar -> registrar
+[C6_conflito_de_escala] resultado: registrado  protocolo: 6f1b47d7
+[C6_conflito_de_escala] despacho: **Despacho**
+
+**Matrícula:** 1004  
+**Início:** 2027-07-12  
+**Fim:** 2027-07-26  
+**Decisão:** Indeferido  
+**Normas Aplicáveis:**  
+1. **N1**: O servidor deve ter saldo de férias suficiente.  
+2. **N5**: A equipe já tem 1 afastado no período (matrícula 1006, de 05/07/2027 a 19/07/2027).  
+
+**Violações:**  
+- N5: a equipe já tem 1 afastado(s) no período: 1006 (2027-07-05 a 2027-07-19).  
+
+**Sugestão de Novo Período:**  
+Recomenda-se um novo período de férias de 11 dias úteis após o último afastamento, ou seja, de 2027-07-20 a 2027-08-03.
+
+[C7_autoaprovacao] caminho: receber -> proteger_entrada -> recusar
+[C7_autoaprovacao] resultado: recusado  protocolo: None
+[C7_autoaprovacao] despacho: Este canal atende apenas pedidos de férias, abono e diária.
+
+[C8_idempotencia] caminho: receber -> proteger_entrada -> extrair -> identificar_servidor -> calcular_periodo -> escala -> financeiro -> normas -> consolidar -> redigir_despacho -> validar -> registrar
+[C8_idempotencia] resultado: duplicado  protocolo: ae788d33
+[C8_idempotencia] despacho: **Despacho:**
+
+**Matrícula:** 1001  
+**Início:** 2027-04-09  
+**Fim:** 2027-04-09  
+**Decisão:** Deferido  
+
+**Normas Aplicáveis:**  
+1. **N6**: O abono (folga) é de **1 dia útil** por pedido, limitado ao número de `abonos_restantes`. Ana Ribeiro possui 5 abonos restantes, permitindo o pedido. A data solicitada (9 de abril de 2027) é um dia útil, portanto, o pedido está em conformidade com as regras.
+
+**Escala da Equipe:**  
+Não há conflito N5. O pedido de abono para o dia 9 de abril de 2027 pode ser considerado, pois não há afastamentos na equipe que se sobreponham a essa data.  
+
+**Contas Financeiras:**  
+Não se aplica.  
+
+**Observações:**  
+Não há violações registradas.
+
+[C9_divergencia] caminho: receber -> proteger_entrada -> extrair -> pedir_dados
+[C9_divergencia] resultado: pediu_dados  protocolo: None
+[C9_divergencia] despacho: Para seguir, informe a matrícula e as datas exatas (AAAA-MM-DD).
+
+[C10_zona_cinzenta] caminho: receber -> proteger_entrada -> extrair -> pedir_dados
+[C10_zona_cinzenta] resultado: pediu_dados  protocolo: None
+[C10_zona_cinzenta] despacho: Para seguir, informe a matrícula e as datas exatas (AAAA-MM-DD).
+
+[C11_diaria_exterior] caminho: receber -> proteger_entrada -> extrair -> identificar_servidor -> calcular_periodo -> escala -> financeiro -> normas -> consolidar -> redigir_despacho -> validar
+[C11_diaria_exterior] PAUSADO em ('aprovacao_chefia',): Aprova o despacho?
+   chefia imediata: 1011
+PEDIDO: {'tipo': 'diaria', 'matricula': '1003', 'data_inicio': '2027-06-08', 'data_fim': '2027-06-11', 'dias_vendidos': 0, 'destino': 'Buenos Aires', 'tipo_destino': 'exterior', 'justificativa': 'Viagem a serviço para um congresso.'}
+SERVIDOR: {'matricula': '1003', 'nome': 'Carla Nunes', 'cargo': 'Agente', 'equipe': 'Inteligência', 'saldo_ferias_dias': 20, 'abonos_restantes': 5, 'chefia': '1011'}
+PERÍODO: {'inicio': '2027-06-08', 'fim': '2027-06-11', 'dias_corridos': 4, 'dias_uteis': 4, 'feriados_no_periodo': {}, 'retorno': '2027-06-14', 'inicio_permitido_n3': True, 'fonte_feriados': 'brasilapi'}
+ESCALA DA EQUIPE: {'equipe': 'Inteligência', 'tamanho_equipe': 2, 'limite_afastados': 1, 'afastamentos': []}
+DESPACHO: **Despacho**
+
+**Matrícula:** 1003  
+**Início:** 2027-06-08  
+**Fim:** 2027-06-11  
+**Decisão:** Deferido  
+
+### Regras Aplicáveis ao Pedido de Diária
+1. **Regra N7:** 
+   - É permitido solicitar uma diária por dia com pernoite e **meia diária** no dia do retorno. 
+   - Para viagens ao exterior, a diária é paga em USD e convertida pela cotação do dia do pedido.
+
+### Análise do Pedido de Diárias
+- **Nome:** Carla Nunes  
+- **Cargo:** Agente  
+- **Equipe:** Inteligência  
+- **Saldo de Férias:** 20 dias  
+- **Abonos Restantes:** 5  
+
+**Detalhes da Viagem:**
+- **Destino:** Buenos Aires (Exterior)  
+- **Data de Início:** 08/06/2027  
+- **Data de Fim:** 11/06/2027  
+- **Dias Corridos:** 4  
+- **Pernoites:** 3  
+- **Retorno:** 14/06/2027  
+
+**Cálculo das Diárias:**
+- **Quantidade de Diárias:** 3.5 (considerando 3 pernoites + 0.5 no retorno)  
+- **Valor da Diária em USD:** 320.00  
+- **Total em USD:** 3.5 diárias x 320.00 = 1120.00 USD  
+- **Cotação do Dólar:** 4.9923  
+- **Total em BRL:** 1120.00 USD x 4.9923 = 5591.38 BRL  
+
+### Considerações Finais
+- O total a ser pago a Carla Nunes pela viagem a Buenos Aires é de **5591.38 BRL**.
+- A justificativa para a viagem está adequada, sendo para um congresso a serviço.
+- Não há violações objetivas e a equipe está dentro do limite de afastados.
+   retome com: python etapa07_grafo.py --retomar C11_diaria_exterior sim|"nao:motivo" <quem>
+
+[C12_inicio_proibido] caminho: receber -> proteger_entrada -> extrair -> identificar_servidor -> calcular_periodo -> escala -> financeiro -> normas -> consolidar -> redigir_despacho -> validar -> registrar
+[C12_inicio_proibido] resultado: registrado  protocolo: 7c458e62
+[C12_inicio_proibido] despacho: **Despacho**
+
+**Matrícula:** 1003  
+**Início:** 2027-04-30  
+**Fim:** 2027-05-14  
+**Decisão:** Indeferido  
+
+### Normas Aplicáveis
+1. **N1:** O servidor deve ter saldo de férias suficiente. Carla Nunes possui 20 dias de férias, o que é adequado para o pedido.
+2. **N3:** As férias **não podem começar** nos 2 dias que antecedem um feriado ou um fim de semana. O pedido de férias de Carla começa em 30 de abril de 2027, que é uma véspera de feriado (1º de maio - Dia do Trabalho). Portanto, essa regra foi violada.
+
+### Violações Objetivas
+- **N3:** As férias não podem começar em 2027-04-30 (véspera de feriado/fim de semana).
+
+### Parecer da Escala
+Não há conflito N5. Entretanto, há uma violação objetiva: as férias não podem começar em 2027-04-30, que é véspera de feriado/fim de semana. Para atender à regra N3, sugiro um novo período de férias começando em 2027-05-03 e terminando em 2027-05-17.
+
+### Contas Financeiras
+Não se aplica.

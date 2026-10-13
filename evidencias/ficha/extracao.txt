@@ -1,0 +1,13 @@
+[modelo] openai:gpt-4o-mini
+
+C1_abono_simples
+  {'tipo': <TipoPedido.ABONO: 'abono'>, 'matricula': '1001', 'data_inicio': '2027-04-09', 'data_fim': '2027-04-09', 'dias_vendidos': 0, 'destino': None, 'tipo_destino': None, 'justificativa': ''}
+
+C2_ferias_com_venda
+  {'tipo': <TipoPedido.FERIAS: 'ferias'>, 'matricula': '1002', 'data_inicio': '2027-04-12', 'data_fim': '2027-04-26', 'dias_vendidos': 10, 'destino': None, 'tipo_destino': None, 'justificativa': ''}
+
+C5_sem_matricula
+  {'tipo': <TipoPedido.FERIAS: 'ferias'>, 'matricula': None, 'data_inicio': None, 'data_fim': None, 'dias_vendidos': 0, 'destino': None, 'tipo_destino': None, 'justificativa': ''}
+
+C11_diaria_exterior
+  {'tipo': <TipoPedido.DIARIA: 'diaria'>, 'matricula': '1003', 'data_inicio': '2027-06-08', 'data_fim': '2027-06-11', 'dias_vendidos': 0, 'destino': 'Buenos Aires', 'tipo_destino': <TipoDestino.EXTERIOR: 'exterior'>, 'justificativa': 'Viagem a serviço para um congresso.'}

@@ -1,0 +1,39 @@
+[modelo] openai:gpt-4o-mini  [guardrail de entrada ligado]
+
+[C11_diaria_exterior] caminho: receber -> proteger_entrada -> extrair -> identificar_servidor -> calcular_periodo -> escala -> financeiro -> normas -> consolidar -> redigir_despacho -> validar -> aprovacao_chefia -> redigir_despacho -> validar
+[C11_diaria_exterior] PAUSADO em ('aprovacao_chefia',): Aprova o despacho?
+   chefia imediata: 1011
+PEDIDO: {'tipo': 'diaria', 'matricula': '1003', 'data_inicio': '2027-06-08', 'data_fim': '2027-06-11', 'dias_vendidos': 0, 'destino': 'Buenos Aires', 'tipo_destino': 'exterior', 'justificativa': 'Viagem a serviço para um congresso.'}
+SERVIDOR: {'matricula': '1003', 'nome': 'Carla Nunes', 'cargo': 'Agente', 'equipe': 'Inteligência', 'saldo_ferias_dias': 20, 'abonos_restantes': 5, 'chefia': '1011'}
+PERÍODO: {'inicio': '2027-06-08', 'fim': '2027-06-11', 'dias_corridos': 4, 'dias_uteis': 4, 'feriados_no_periodo': {}, 'retorno': '2027-06-14', 'inicio_permitido_n3': True, 'fonte_feriados': 'brasilapi'}
+ESCALA DA EQUIPE: {'equipe': 'Inteligência', 'tamanho_equipe': 2, 'limite_afastados': 1, 'afastamentos': []}
+DESPACHO: **DESPACHO**
+
+**Matrícula:** 1003  
+**Início:** 2027-06-08  
+**Fim:** 2027-06-11  
+**Decisão:** Deferido  
+**Normas Aplicáveis:** N7  
+
+### Análise do Pedido de Diárias
+
+**Dados do Servidor:**  
+- **Nome:** Carla Nunes  
+- **Cargo:** Agente  
+- **Equipe:** Inteligência  
+
+**Detalhes da Viagem:**  
+- **Destino:** Buenos Aires (Exterior)  
+- **Data de Início:** 08/06/2027  
+- **Data de Fim:** 11/06/2027  
+- **Retorno ao Trabalho:** 14/06/2027  
+
+**Cálculo das Diárias:**  
+- **Quantidade de Diárias:** 3.5  
+- **Valor da Diária em USD:** 320.00  
+- **Total em USD:** 1120.00  
+- **Cotação do Dólar:** 4.9923  
+- **Total em BRL:** 5591.38  
+
+O total a ser pago a Carla Nunes pela viagem a Buenos Aires é de **5591.38 BRL**. O pedido está dentro das normas estabelecidas para diárias e depende da chefia N8.
+   retome com: python etapa07_grafo.py --retomar C11_diaria_exterior sim|"nao:motivo" <quem>

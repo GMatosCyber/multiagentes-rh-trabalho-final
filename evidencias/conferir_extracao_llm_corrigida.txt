@@ -1,0 +1,9 @@
+conferir.py  (com LLM)
+
+Etapa 2: Extração estruturada   (onde olhar: etapa02_extracao.py; aula2/agente_output2.py)
+  [OK]       2.1 modelo Pedido com todos os campos e descrições
+  [OK]       2.2 extrator com output_type=Pedido e instruções completas
+  [OK]       2.3 [LLM] extração de C1, C2, C5 e C11
+
+======================================================================
+  Etapa 2    ✅ completa        Extração estruturada

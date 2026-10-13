@@ -1,0 +1,2 @@
+[modelo] openai:gpt-4o-mini
+Sim, a equipe Cartório tem um servidor de férias entre 12 e 26/07/2027. O afastamento é do servidor com matrícula 1006, que está em férias de 05 a 19/07/2027.

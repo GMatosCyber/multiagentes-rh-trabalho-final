@@ -1,0 +1,150 @@
+{
+  "modelo": "openai:gpt-4o-mini",
+  "casos": {
+    "C1_abono_simples": {
+      "segundos_paralelo": 1.622,
+      "tokens_paralelo": 2772,
+      "divergencia": false,
+      "pedido": {
+        "tipo": "abono",
+        "matricula": "1001",
+        "data_inicio": "2027-04-09",
+        "data_fim": "2027-04-09",
+        "dias_vendidos": 0,
+        "destino": null,
+        "tipo_destino": null,
+        "justificativa": ""
+      },
+      "votos": [
+        {
+          "tipo": "abono",
+          "matricula": "1001",
+          "data_inicio": "2027-04-09",
+          "data_fim": "2027-04-09",
+          "dias_vendidos": 0,
+          "destino": null,
+          "tipo_destino": null,
+          "justificativa": ""
+        },
+        {
+          "tipo": "abono",
+          "matricula": "1001",
+          "data_inicio": "2027-04-09",
+          "data_fim": "2027-04-09",
+          "dias_vendidos": 0,
+          "destino": null,
+          "tipo_destino": null,
+          "justificativa": ""
+        },
+        {
+          "tipo": "abono",
+          "matricula": "1001",
+          "data_inicio": "2027-04-09",
+          "data_fim": "2027-04-09",
+          "dias_vendidos": 0,
+          "destino": null,
+          "tipo_destino": null,
+          "justificativa": ""
+        }
+      ]
+    },
+    "C2_ferias_com_venda": {
+      "segundos_paralelo": 1.649,
+      "tokens_paralelo": 2790,
+      "divergencia": false,
+      "pedido": {
+        "tipo": "ferias",
+        "matricula": "1002",
+        "data_inicio": "2027-04-12",
+        "data_fim": "2027-04-26",
+        "dias_vendidos": 10,
+        "destino": null,
+        "tipo_destino": null,
+        "justificativa": ""
+      },
+      "votos": [
+        {
+          "tipo": "ferias",
+          "matricula": "1002",
+          "data_inicio": "2027-04-12",
+          "data_fim": "2027-04-26",
+          "dias_vendidos": 10,
+          "destino": null,
+          "tipo_destino": null,
+          "justificativa": ""
+        },
+        {
+          "tipo": "ferias",
+          "matricula": "1002",
+          "data_inicio": "2027-04-12",
+          "data_fim": "2027-04-26",
+          "dias_vendidos": 10,
+          "destino": null,
+          "tipo_destino": null,
+          "justificativa": ""
+        },
+        {
+          "tipo": "ferias",
+          "matricula": "1002",
+          "data_inicio": "2027-04-12",
+          "data_fim": "2027-04-26",
+          "dias_vendidos": 10,
+          "destino": null,
+          "tipo_destino": null,
+          "justificativa": ""
+        }
+      ]
+    },
+    "C9_divergencia": {
+      "segundos_paralelo": 1.603,
+      "tokens_paralelo": 2789,
+      "divergencia": false,
+      "pedido": {
+        "tipo": "ferias",
+        "matricula": "1002",
+        "data_inicio": null,
+        "data_fim": null,
+        "dias_vendidos": 0,
+        "destino": null,
+        "tipo_destino": null,
+        "justificativa": "Pedido de férias com venda de parte dos dias."
+      },
+      "votos": [
+        {
+          "tipo": "ferias",
+          "matricula": "1002",
+          "data_inicio": null,
+          "data_fim": null,
+          "dias_vendidos": 0,
+          "destino": null,
+          "tipo_destino": null,
+          "justificativa": "Pedido de férias com venda de parte dos dias."
+        },
+        {
+          "tipo": "ferias",
+          "matricula": "1002",
+          "data_inicio": null,
+          "data_fim": null,
+          "dias_vendidos": 0,
+          "destino": null,
+          "tipo_destino": null,
+          "justificativa": "Quero tirar uns dez dias perto da Páscoa de 2027 e talvez vender uma parte."
+        },
+        {
+          "tipo": "ferias",
+          "matricula": "1002",
+          "data_inicio": null,
+          "data_fim": null,
+          "dias_vendidos": 0,
+          "destino": null,
+          "tipo_destino": null,
+          "justificativa": "Pedido de férias com venda de parte dos dias."
+        }
+      ]
+    },
+    "C2_sequencial": {
+      "segundos": 4.334,
+      "tokens": 2790
+    }
+  }
+}

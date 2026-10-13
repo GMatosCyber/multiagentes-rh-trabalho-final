@@ -1,0 +1,15 @@
+[retry] tentativa 1 falhou: <urlopen error offline>
+[retry] tentativa 2 falhou: <urlopen error offline>
+[retry] tentativa 3 falhou: <urlopen error offline>
+feriados 2027: 13 (fonte: arquivo_local, 1.5s)
+hoje: terça-feira, 13/10/2026 (2026-10-13)
+inicio_permitido(2027-04-12) = True  (esperado True)
+inicio_permitido(2027-04-30) = False  (esperado False)
+inicio_permitido(2027-04-15) = False  (esperado False)
+inicio_permitido(2027-05-03) = True  (esperado True)
+dias úteis 12/04 a 26/04/2027: 10 | retorno: 2027-04-27
+[retry] tentativa 1 falhou: <urlopen error offline>
+[retry] tentativa 2 falhou: <urlopen error offline>
+[retry] tentativa 3 falhou: <urlopen error offline>
+cotação USD->BRL: None
+protocolo C1=ae788d33 C8=ae788d33 iguais=True

@@ -1,0 +1,22 @@
+[modelo] openai:gpt-4o-mini  [guardrail de entrada ligado]
+
+[C2_ferias_com_venda] caminho: receber -> proteger_entrada -> extrair -> identificar_servidor -> calcular_periodo -> escala -> financeiro -> normas -> consolidar -> redigir_despacho -> validar -> aprovacao_chefia -> redigir_despacho -> validar -> aprovacao_chefia -> registrar
+[C2_ferias_com_venda] resultado: registrado  protocolo: b7b6f485
+[C2_ferias_com_venda] despacho: **Despacho**
+
+**Matrícula:** 1002  
+**Período:** 2027-04-12 a 2027-04-26  
+**Decisão:** Deferido  
+**Normas Aplicáveis:**  
+1. **N1:** Saldo de férias suficiente (30 dias).  
+2. **N2:** Venda de até 10 dias permitida.  
+3. **N3:** Início das férias em 12/04/2027, sem conflito com feriado (21/04).  
+
+**Violações:** Nenhuma.  
+
+**Informações Financeiras:**  
+- **Dias Vendidos:** 10  
+- **Venda Total:** R$ 3.166,67  
+- **Retorno ao Trabalho:** 27/04/2027
+
+Autorização (N8): ratificado pela chefia 1010.

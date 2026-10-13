@@ -1,0 +1,92 @@
+conferir.py  (com LLM, com opcionais)
+
+Etapa 0: Preparação e tabela N1–N10   (onde olhar: PASSO_A_PASSO.md, Etapa 0)
+  [OK]       arquivos de dados/ carregam
+  [OK]       tabela N1–N10 preenchida no ENTREGA.md  (10 de 10)
+
+Etapa 1: Primeiro agente com tool   (onde olhar: etapa01_agente.py; aula1/segundo_agente.py)
+  [OK]       1.1 tool consultar_servidor (1002 sem salário; 9999 não encontrada)
+  [OK]       1.2 AtendenteRH com a tool
+  [OK]       1.3 [LLM] o agente responde o saldo da 1002
+
+Etapa 2: Extração estruturada   (onde olhar: etapa02_extracao.py; aula2/agente_output2.py)
+  [OK]       2.1 modelo Pedido com todos os campos e descrições
+  [OK]       2.2 extrator com output_type=Pedido e instruções completas
+  [OK]       2.3 [LLM] extração de C1, C2, C5 e C11
+
+Etapa 3: Guardrails de entrada   (onde olhar: etapa03_guardrails.py; aula2/agente_guardrail.py)
+  [OK]       3.1 regex de CPF e CID (pronta: não mexa nela)
+  [OK]       3.2 classificador com output_type=AvaliacaoEscopo
+  [OK]       3.4 os @input_guardrail (o de dado sensível dispara no C3 e não no C2)
+  [OK]       3.3 [LLM] notas do classificador: C1 passa, C4 e C7 bloqueiam  (notas C1=0.05 C4=0.95 C7=0.95)
+
+Etapa 4: APIs com resiliência (pronta)   (onde olhar: etapa04_ferramentas.py)
+  [OK]       etapa04_ferramentas.py responde como esperado (é a peça pronta: não mexa nela)
+
+Etapa 5: MCP Server do RH   (onde olhar: etapa05_mcp_rh.py e etapa05_cliente_mcp.py; aula6/desafio2/mcp_unidades.py)
+  [OK]       chamar_mcp (pronto) fala com o seu server
+  [OK]       5.1 as 5 tools de leitura
+  [OK]       5.2 registrar_decisao grava e não duplica
+
+Etapa 6: Especialistas e fluxo linear (Marco mínimo)   (onde olhar: etapa06_agentes.py e etapa06_linear.py; aula4/ex03_agente_as_tool.py)
+  [OK]       6.0 etapa06_regras.py (pronta)
+  [OK]       6.1 cada especialista só com as suas tools
+  [OK]       6.2 Coordenador com os especialistas como as_tool
+  [OK]       6.4 [LLM] processar(C6) chega ao indeferimento com o protocolo certo
+
+Etapa 7: O grafo   (onde olhar: etapa07_grafo.py; aula6/desafio2/main.py e aula7/exemplos/08_paralelismo/main.py)
+  [OK]       7.5 o grafo compila com todos os nós
+  [OK]       C3 dado sensível -> recusar
+  [OK]       C4 fora do escopo -> recusar
+  [OK]       C5 sem matrícula -> pedir_dados
+  [OK]       C1 abono -> registra deferido (paralelismo + ciclo)
+  [OK]       C6 conflito de escala -> registra indeferido (N5)
+  [OK]       C12 início proibido -> registra indeferido (N3)
+
+Etapa 8: Persistência e aprovação da chefia   (onde olhar: etapa07_grafo.py; aula7/exemplos/07_aprovacao_revisao/main.py)
+  [OK]       8.2 o C2 pausa na chefia sem gravar nada
+  [OK]       8.4 --pendentes mostra o C2 pausado
+  [OK]       8.3/8.4 rejeita, refaz, aprova (1010) e grava
+  [OK]       8.3 duas rejeições -> indeferido_pela_chefia
+
+Etapa 9: Segurança (Marco completo)   (onde olhar: etapa05_mcp_rh.py e etapa07_grafo.py; aula5/exemplos/10_seguranca/server_seguro.py)
+  [OK]       9.2 o server nega: sem token, enum, autoaprovação, chefia errada
+  [OK]       9.3 auditoria com ALLOW e DENY, sem o token
+  [OK]       9.4 guardrail de saída: despacho com CPF não é gravado
+
+Etapa 10: Observabilidade   (onde olhar: etapa10_governanca.py e etapa10_observabilidade.py; aula5/exemplos/11_observabilidade/)
+  [OK]       10.1 o hook registra tool, argumentos e tokens
+  [OK]       10.2/10.3 medido() grava a métrica e resumo() resume
+
+Etapa 11: Demonstração e entrega   (onde olhar: ENTREGA.md)
+  [OK]       tabela dos 12 casos preenchida no ENTREGA.md
+
+Etapa 🆕A: Votação em paralelo (opcional)   (onde olhar: etapa02_extracao.py)
+  [OK]       🆕 A.1 três instruções diferentes
+  [OK]       🆕 A.2 os 3 extratores rodam em paralelo e a votação decide  (3 votos em 0.20s)
+
+Etapa 🆕B: Hooks que barram (opcional)   (onde olhar: etapa10_governanca.py)
+  [OK]       🆕 B barra tool fora da lista e orçamento estourado
+
+Etapa 🆕C: Humano na entrada (opcional)   (onde olhar: etapa07_grafo.py)
+  [OK]       🆕 C o C10 pausa na triagem e o 'nao' recusa
+
+======================================================================
+  Etapa 0    ✅ completa        Preparação e tabela N1–N10
+  Etapa 1    ✅ completa        Primeiro agente com tool
+  Etapa 2    ✅ completa        Extração estruturada
+  Etapa 3    ✅ completa        Guardrails de entrada
+  Etapa 4    ✅ completa        APIs com resiliência (pronta)
+  Etapa 5    ✅ completa        MCP Server do RH
+  Etapa 6    ✅ completa        Especialistas e fluxo linear (Marco mínimo)
+  Etapa 7    ✅ completa        O grafo
+  Etapa 8    ✅ completa        Persistência e aprovação da chefia
+  Etapa 9    ✅ completa        Segurança (Marco completo)
+  Etapa 10   ✅ completa        Observabilidade
+  Etapa 11   ✅ completa        Demonstração e entrega
+  Etapa 🆕A   ✅ completa        Votação em paralelo (opcional)
+  Etapa 🆕B   ✅ completa        Hooks que barram (opcional)
+  Etapa 🆕C   ✅ completa        Humano na entrada (opcional)
+
+  🎯 Marco mínimo atingido (Etapas 0 a 6).
+  🏁 Marco completo atingido (Etapas 0 a 9).

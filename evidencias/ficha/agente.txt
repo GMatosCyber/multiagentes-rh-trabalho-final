@@ -1,0 +1,4 @@
+[modelo] openai:gpt-4o-mini
+[tool] consultar_servidor 1002
+O servidor Bruno Castro, matrícula 1002, tem um saldo de 30 dias de férias.
+O abono pecuniário é a possibilidade de o servidor público vender parte de suas férias, recebendo o valor correspondente em dinheiro. Normalmente, é permitido vender até um terço do total das férias a que tem direito. Essa medida permite que o servidor tenha uma alternativa financeira em vez de usufruir do descanso completo.

@@ -1,0 +1,59 @@
+{
+  "modelo": "openai:gpt-4o-mini",
+  "casos": {
+    "triagem_real_nao": {
+      "caminho": [
+        "receber",
+        "proteger_entrada",
+        "triagem_humana",
+        "recusar"
+      ],
+      "resultado": "recusado",
+      "protocolo": null,
+      "decisao": null,
+      "pedido": null,
+      "despacho": "procure a junta médica ou licença para acompanhar familiar",
+      "nota_escopo": 0.55,
+      "violacoes": [],
+      "contas_financeiras": null,
+      "alternativa_periodo": null,
+      "tentativas": 0,
+      "rejeicoes": 0,
+      "feedback_chefia": "",
+      "nota_escopo_antes": 0.55,
+      "proximo": []
+    },
+    "triagem_real_sim": {
+      "caminho": [
+        "receber",
+        "proteger_entrada",
+        "triagem_humana",
+        "extrair",
+        "pedir_dados"
+      ],
+      "resultado": "pediu_dados",
+      "protocolo": null,
+      "decisao": null,
+      "pedido": {
+        "tipo": "abono",
+        "matricula": "1001",
+        "data_inicio": null,
+        "data_fim": null,
+        "dias_vendidos": 0,
+        "destino": null,
+        "tipo_destino": null,
+        "justificativa": "Meu pai foi internado e eu queria ficar com ele alguns dias."
+      },
+      "despacho": "Para seguir, informe a matrícula e as datas exatas (AAAA-MM-DD).",
+      "nota_escopo": 0.55,
+      "violacoes": [],
+      "contas_financeiras": null,
+      "alternativa_periodo": null,
+      "tentativas": 0,
+      "rejeicoes": 0,
+      "feedback_chefia": "",
+      "nota_escopo_antes": 0.55,
+      "proximo": []
+    }
+  }
+}

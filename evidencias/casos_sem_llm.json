@@ -1,0 +1,181 @@
+{
+  "C1_abono_simples": {
+    "caminho": [
+      "receber",
+      "proteger_entrada",
+      "extrair",
+      "identificar_servidor",
+      "calcular_periodo",
+      "escala",
+      "financeiro",
+      "normas",
+      "consolidar",
+      "redigir_despacho",
+      "validar",
+      "registrar"
+    ],
+    "resultado": "registrado",
+    "protocolo": "ae788d33",
+    "decisao": "deferido"
+  },
+  "C2_ferias_com_venda": {
+    "caminho": [
+      "receber",
+      "proteger_entrada",
+      "extrair",
+      "identificar_servidor",
+      "calcular_periodo",
+      "escala",
+      "financeiro",
+      "normas",
+      "consolidar",
+      "redigir_despacho",
+      "validar",
+      "aprovacao_chefia",
+      "registrar"
+    ],
+    "resultado": "registrado",
+    "protocolo": "b7b6f485",
+    "decisao": "deferido"
+  },
+  "C3_dado_de_saude": {
+    "caminho": [
+      "receber",
+      "proteger_entrada",
+      "recusar"
+    ],
+    "resultado": "recusado",
+    "protocolo": null,
+    "decisao": null
+  },
+  "C4_fora_do_escopo": {
+    "caminho": [
+      "receber",
+      "proteger_entrada",
+      "recusar"
+    ],
+    "resultado": "recusado",
+    "protocolo": null,
+    "decisao": null
+  },
+  "C5_sem_matricula": {
+    "caminho": [
+      "receber",
+      "proteger_entrada",
+      "extrair",
+      "pedir_dados"
+    ],
+    "resultado": "pediu_dados",
+    "protocolo": null,
+    "decisao": null
+  },
+  "C6_conflito_de_escala": {
+    "caminho": [
+      "receber",
+      "proteger_entrada",
+      "extrair",
+      "identificar_servidor",
+      "calcular_periodo",
+      "escala",
+      "financeiro",
+      "normas",
+      "consolidar",
+      "redigir_despacho",
+      "validar",
+      "registrar"
+    ],
+    "resultado": "registrado",
+    "protocolo": "6f1b47d7",
+    "decisao": "indeferido"
+  },
+  "C7_autoaprovacao": {
+    "caminho": [
+      "receber",
+      "proteger_entrada",
+      "recusar"
+    ],
+    "resultado": "recusado",
+    "protocolo": null,
+    "decisao": null
+  },
+  "C8_idempotencia": {
+    "caminho": [
+      "receber",
+      "proteger_entrada",
+      "extrair",
+      "identificar_servidor",
+      "calcular_periodo",
+      "escala",
+      "financeiro",
+      "normas",
+      "consolidar",
+      "redigir_despacho",
+      "validar",
+      "registrar"
+    ],
+    "resultado": "duplicado",
+    "protocolo": "ae788d33",
+    "decisao": "deferido"
+  },
+  "C9_divergencia": {
+    "caminho": [
+      "receber",
+      "proteger_entrada",
+      "extrair",
+      "pedir_dados"
+    ],
+    "resultado": "pediu_dados",
+    "protocolo": null,
+    "decisao": null
+  },
+  "C10_zona_cinzenta": {
+    "caminho": [
+      "receber",
+      "proteger_entrada",
+      "extrair",
+      "pedir_dados"
+    ],
+    "resultado": "pediu_dados",
+    "protocolo": null,
+    "decisao": null
+  },
+  "C11_diaria_exterior": {
+    "caminho": [
+      "receber",
+      "proteger_entrada",
+      "extrair",
+      "identificar_servidor",
+      "calcular_periodo",
+      "escala",
+      "financeiro",
+      "normas",
+      "consolidar",
+      "redigir_despacho",
+      "validar",
+      "aprovacao_chefia",
+      "registrar"
+    ],
+    "resultado": "registrado",
+    "protocolo": "ec67dba1",
+    "decisao": "deferido"
+  },
+  "C12_inicio_proibido": {
+    "caminho": [
+      "receber",
+      "proteger_entrada",
+      "extrair",
+      "identificar_servidor",
+      "calcular_periodo",
+      "escala",
+      "financeiro",
+      "normas",
+      "consolidar",
+      "redigir_despacho",
+      "validar",
+      "registrar"
+    ],
+    "resultado": "registrado",
+    "protocolo": "7c458e62",
+    "decisao": "indeferido"
+  }
+}

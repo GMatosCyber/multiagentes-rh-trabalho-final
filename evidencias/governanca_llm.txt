@@ -1,0 +1,12 @@
+[modelo] openai:gpt-4o-mini
+a) tool fora da lista
+barrado: Coordenador não pode usar consultar_remuneracao
+b) orçamento
+[1/9] guardrails
+[2/9] extração
+[3/9] cadastro MCP
+[4/9] período e feriados
+[5/9] escala e regras
+[6/9] especialistas
+[governança] Coordenador -> parecer_normas: OK (1 de 1)
+barrado: orçamento de tools estourado (2 de 1)

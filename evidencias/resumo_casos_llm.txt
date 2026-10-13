@@ -1,0 +1,12 @@
+C1_abono_simples registrado ae788d33 tokens= 5092
+C2_ferias_com_venda registrado b7b6f485 tokens= 8408
+C3_dado_de_saude recusado None tokens= 0
+C4_fora_do_escopo recusado None tokens= 411
+C5_sem_matricula pediu_dados None tokens= 1282
+C6_conflito_de_escala registrado 6f1b47d7 tokens= 6003
+C7_autoaprovacao recusado None tokens= 435
+C8_idempotencia duplicado ae788d33 tokens= 4458
+C9_divergencia pediu_dados None tokens= 1326
+C10_zona_cinzenta pediu_dados None tokens= 1355
+C11_diaria_exterior registrado ec67dba1 tokens= 6706
+C12_inicio_proibido registrado 7c458e62 tokens= 5678

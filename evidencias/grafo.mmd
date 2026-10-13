@@ -1,0 +1,50 @@
+---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	receber(receber)
+	proteger_entrada(proteger_entrada)
+	recusar(recusar)
+	extrair(extrair)
+	pedir_dados(pedir_dados)
+	identificar_servidor(identificar_servidor)
+	calcular_periodo(calcular_periodo)
+	normas(normas)
+	escala(escala)
+	financeiro(financeiro)
+	consolidar(consolidar)
+	redigir_despacho(redigir_despacho)
+	validar(validar)
+	aprovacao_chefia(aprovacao_chefia)
+	registrar(registrar)
+	__end__([<p>__end__</p>]):::last
+	__start__ --> receber;
+	aprovacao_chefia -. &nbsp;redigir&nbsp; .-> redigir_despacho;
+	aprovacao_chefia -.-> registrar;
+	calcular_periodo --> escala;
+	calcular_periodo --> financeiro;
+	calcular_periodo --> normas;
+	consolidar --> redigir_despacho;
+	escala --> consolidar;
+	extrair -. &nbsp;ok&nbsp; .-> identificar_servidor;
+	extrair -. &nbsp;incompleto&nbsp; .-> pedir_dados;
+	financeiro --> consolidar;
+	identificar_servidor -. &nbsp;ok&nbsp; .-> calcular_periodo;
+	identificar_servidor -. &nbsp;nao_encontrado&nbsp; .-> pedir_dados;
+	normas --> consolidar;
+	proteger_entrada -. &nbsp;ok&nbsp; .-> extrair;
+	proteger_entrada -. &nbsp;bloqueado&nbsp; .-> recusar;
+	receber --> proteger_entrada;
+	redigir_despacho --> validar;
+	validar -. &nbsp;chefia&nbsp; .-> aprovacao_chefia;
+	validar -. &nbsp;redigir&nbsp; .-> redigir_despacho;
+	validar -.-> registrar;
+	pedir_dados --> __end__;
+	recusar --> __end__;
+	registrar --> __end__;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc

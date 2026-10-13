@@ -1,0 +1,635 @@
+{
+  "modelo": "openai:gpt-4o-mini",
+  "casos": {
+    "C1_abono_simples": {
+      "caminho": [
+        "receber",
+        "proteger_entrada",
+        "extrair",
+        "identificar_servidor",
+        "calcular_periodo",
+        "escala",
+        "financeiro",
+        "normas",
+        "consolidar",
+        "redigir_despacho",
+        "validar",
+        "registrar"
+      ],
+      "resultado": "registrado",
+      "protocolo": "ae788d33",
+      "decisao": "deferido",
+      "pedido": {
+        "tipo": "abono",
+        "matricula": "1001",
+        "data_inicio": "2027-04-09",
+        "data_fim": "2027-04-09",
+        "dias_vendidos": 0,
+        "destino": null,
+        "tipo_destino": null,
+        "justificativa": "Uso de um dia de abono."
+      },
+      "despacho": "**Despacho**\n\n**Matrícula:** 1001  \n**Início:** 2027-04-09  \n**Fim:** 2027-04-09  \n\nPara o pedido de abono de folga, as regras aplicáveis são:  \n1. **N6**: O abono é de **1 dia útil** por pedido, limitado ao número de `abonos_restantes`. Ana Ribeiro possui 5 abonos restantes, permitindo o pedido. A data solicitada (9 de abril de 2027) não é um fim de semana ou feriado, portanto, o pedido está em conformidade com as regras.\n\n**Escala:** Não há conflito N5. O pedido pode ser considerado, pois não há afastamentos na equipe que se sobreponham a esse período.\n\nAutorização (N8): abono deferido automaticamente, sem necessidade de chefia.",
+      "nota_escopo": 0.05,
+      "violacoes": [],
+      "contas_financeiras": null,
+      "alternativa_periodo": null,
+      "tentativas": 1,
+      "rejeicoes": 0,
+      "feedback_chefia": "",
+      "proximo": [],
+      "metricas": {
+        "nos": [
+          "receber",
+          "proteger_entrada",
+          "extrair",
+          "identificar_servidor",
+          "calcular_periodo",
+          "financeiro",
+          "escala",
+          "normas",
+          "consolidar",
+          "redigir_despacho",
+          "validar",
+          "registrar"
+        ],
+        "segundos_total": 16.53,
+        "mais_lento": [
+          "normas",
+          4.361386
+        ],
+        "tokens_total": 5092
+      }
+    },
+    "C2_ferias_com_venda": {
+      "caminho": [
+        "receber",
+        "proteger_entrada",
+        "extrair",
+        "identificar_servidor",
+        "calcular_periodo",
+        "escala",
+        "financeiro",
+        "normas",
+        "consolidar",
+        "redigir_despacho",
+        "validar",
+        "aprovacao_chefia",
+        "redigir_despacho",
+        "validar",
+        "aprovacao_chefia",
+        "registrar"
+      ],
+      "resultado": "registrado",
+      "protocolo": "b7b6f485",
+      "decisao": "deferido",
+      "pedido": {
+        "tipo": "ferias",
+        "matricula": "1002",
+        "data_inicio": "2027-04-12",
+        "data_fim": "2027-04-26",
+        "dias_vendidos": 10,
+        "destino": null,
+        "tipo_destino": null,
+        "justificativa": ""
+      },
+      "despacho": "**Despacho**\n\n**Matrícula:** 1002  \n**Período:** 2027-04-12 a 2027-04-26  \n**Decisão:** Deferido  \n**Normas Aplicáveis:**  \n1. **N1:** Saldo de férias suficiente (30 dias).  \n2. **N2:** Venda de até 10 dias permitida.  \n3. **N3:** Início das férias em 12/04/2027, sem conflito com feriado (21/04).  \n\n**Violações:** Nenhuma.  \n\n**Informações Financeiras:**  \n- **Dias Vendidos:** 10  \n- **Venda Total:** R$ 3.166,67  \n- **Retorno ao Trabalho:** 27/04/2027\n\nAutorização (N8): ratificado pela chefia 1010.",
+      "nota_escopo": 0.05,
+      "violacoes": [],
+      "contas_financeiras": {
+        "regra": "N2",
+        "dias_vendidos": 10,
+        "venda_total_brl": 3166.67,
+        "dias_gozados": 15,
+        "dias_consumidos_saldo": 25
+      },
+      "alternativa_periodo": null,
+      "tentativas": 0,
+      "rejeicoes": 1,
+      "feedback_chefia": "",
+      "proximo": [],
+      "metricas": {
+        "nos": [
+          "receber",
+          "proteger_entrada",
+          "extrair",
+          "identificar_servidor",
+          "calcular_periodo",
+          "escala",
+          "normas",
+          "financeiro",
+          "consolidar",
+          "redigir_despacho",
+          "validar",
+          "aprovacao_chefia",
+          "aprovacao_chefia",
+          "redigir_despacho",
+          "validar",
+          "aprovacao_chefia",
+          "aprovacao_chefia",
+          "registrar"
+        ],
+        "segundos_total": 24.29,
+        "mais_lento": [
+          "financeiro",
+          5.256639
+        ],
+        "tokens_total": 8408
+      }
+    },
+    "C3_dado_de_saude": {
+      "caminho": [
+        "receber",
+        "proteger_entrada",
+        "recusar"
+      ],
+      "resultado": "recusado",
+      "protocolo": null,
+      "decisao": null,
+      "pedido": null,
+      "despacho": "Por segurança, não envie CPF por este canal. Reenvie o pedido informando só a matrícula.",
+      "nota_escopo": 0.0,
+      "violacoes": [],
+      "contas_financeiras": null,
+      "alternativa_periodo": null,
+      "tentativas": 0,
+      "rejeicoes": 0,
+      "feedback_chefia": "",
+      "proximo": [],
+      "metricas": {
+        "nos": [
+          "receber",
+          "proteger_entrada",
+          "recusar"
+        ],
+        "segundos_total": 0.0,
+        "mais_lento": [
+          "proteger_entrada",
+          1.1e-05
+        ],
+        "tokens_total": 0
+      }
+    },
+    "C4_fora_do_escopo": {
+      "caminho": [
+        "receber",
+        "proteger_entrada",
+        "recusar"
+      ],
+      "resultado": "recusado",
+      "protocolo": null,
+      "decisao": null,
+      "pedido": null,
+      "despacho": "Este canal atende apenas pedidos de férias, abono e diária.",
+      "nota_escopo": 0.95,
+      "violacoes": [],
+      "contas_financeiras": null,
+      "alternativa_periodo": null,
+      "tentativas": 0,
+      "rejeicoes": 0,
+      "feedback_chefia": "",
+      "proximo": [],
+      "metricas": {
+        "nos": [
+          "receber",
+          "proteger_entrada",
+          "recusar"
+        ],
+        "segundos_total": 1.07,
+        "mais_lento": [
+          "proteger_entrada",
+          1.06663
+        ],
+        "tokens_total": 411
+      }
+    },
+    "C5_sem_matricula": {
+      "caminho": [
+        "receber",
+        "proteger_entrada",
+        "extrair",
+        "pedir_dados"
+      ],
+      "resultado": "pediu_dados",
+      "protocolo": null,
+      "decisao": null,
+      "pedido": {
+        "tipo": "ferias",
+        "matricula": null,
+        "data_inicio": null,
+        "data_fim": null,
+        "dias_vendidos": 0,
+        "destino": null,
+        "tipo_destino": null,
+        "justificativa": ""
+      },
+      "despacho": "Para seguir, informe a matrícula e as datas exatas (AAAA-MM-DD).",
+      "nota_escopo": 0.05,
+      "violacoes": [],
+      "contas_financeiras": null,
+      "alternativa_periodo": null,
+      "tentativas": 0,
+      "rejeicoes": 0,
+      "feedback_chefia": "",
+      "proximo": [],
+      "metricas": {
+        "nos": [
+          "receber",
+          "proteger_entrada",
+          "extrair",
+          "pedir_dados"
+        ],
+        "segundos_total": 4.21,
+        "mais_lento": [
+          "proteger_entrada",
+          3.0533
+        ],
+        "tokens_total": 1282
+      }
+    },
+    "C6_conflito_de_escala": {
+      "caminho": [
+        "receber",
+        "proteger_entrada",
+        "extrair",
+        "identificar_servidor",
+        "calcular_periodo",
+        "escala",
+        "financeiro",
+        "normas",
+        "consolidar",
+        "redigir_despacho",
+        "validar",
+        "registrar"
+      ],
+      "resultado": "registrado",
+      "protocolo": "6f1b47d7",
+      "decisao": "indeferido",
+      "pedido": {
+        "tipo": "ferias",
+        "matricula": "1004",
+        "data_inicio": "2027-07-12",
+        "data_fim": "2027-07-26",
+        "dias_vendidos": 0,
+        "destino": null,
+        "tipo_destino": null,
+        "justificativa": ""
+      },
+      "despacho": "**Despacho:**\n\n**Matrícula:** 1004  \n**Início:** 2027-07-12  \n**Fim:** 2027-07-26  \n**Decisão:** Indeferido  \n**Normas Aplicáveis:** N1, N2, N3, N5  \n\nO pedido de férias de Diego Matos foi indeferido devido à violação da norma N5, que estabelece que a equipe já possui 1 afastado no período (matrícula 1006, de 2027-07-05 a 2027-07-19). Embora o servidor tenha saldo suficiente e o início das férias esteja em conformidade, a limitação de afastamentos simultâneos impede a concessão.\n\n**Sugestão de Novo Período:** 2027-07-20 a 2027-08-03, respeitando o limite de afastamentos da equipe.\n\nAutorização (N8): indeferimento por regra objetiva; não exige aprovação da chefia.",
+      "nota_escopo": 0.05,
+      "violacoes": [
+        "N5: a equipe já tem 1 afastado(s) no período: 1006 (2027-07-05 a 2027-07-19)"
+      ],
+      "contas_financeiras": null,
+      "alternativa_periodo": {
+        "data_inicio": "2027-07-20",
+        "data_fim": "2027-08-03",
+        "dias_corridos": 15
+      },
+      "tentativas": 1,
+      "rejeicoes": 0,
+      "feedback_chefia": "",
+      "proximo": [],
+      "metricas": {
+        "nos": [
+          "receber",
+          "proteger_entrada",
+          "extrair",
+          "identificar_servidor",
+          "calcular_periodo",
+          "financeiro",
+          "escala",
+          "normas",
+          "consolidar",
+          "redigir_despacho",
+          "validar",
+          "registrar"
+        ],
+        "segundos_total": 17.1,
+        "mais_lento": [
+          "normas",
+          5.773247
+        ],
+        "tokens_total": 6003
+      }
+    },
+    "C7_autoaprovacao": {
+      "caminho": [
+        "receber",
+        "proteger_entrada",
+        "recusar"
+      ],
+      "resultado": "recusado",
+      "protocolo": null,
+      "decisao": null,
+      "pedido": null,
+      "despacho": "Este canal atende apenas pedidos de férias, abono e diária.",
+      "nota_escopo": 0.95,
+      "violacoes": [],
+      "contas_financeiras": null,
+      "alternativa_periodo": null,
+      "tentativas": 0,
+      "rejeicoes": 0,
+      "feedback_chefia": "",
+      "proximo": [],
+      "metricas": {
+        "nos": [
+          "receber",
+          "proteger_entrada",
+          "recusar"
+        ],
+        "segundos_total": 1.06,
+        "mais_lento": [
+          "proteger_entrada",
+          1.056602
+        ],
+        "tokens_total": 435
+      }
+    },
+    "C8_idempotencia": {
+      "caminho": [
+        "receber",
+        "proteger_entrada",
+        "extrair",
+        "identificar_servidor",
+        "calcular_periodo",
+        "escala",
+        "financeiro",
+        "normas",
+        "consolidar",
+        "redigir_despacho",
+        "validar",
+        "registrar"
+      ],
+      "resultado": "duplicado",
+      "protocolo": "ae788d33",
+      "decisao": "deferido",
+      "pedido": {
+        "tipo": "abono",
+        "matricula": "1001",
+        "data_inicio": "2027-04-09",
+        "data_fim": "2027-04-09",
+        "dias_vendidos": 0,
+        "destino": null,
+        "tipo_destino": null,
+        "justificativa": "Uso de um dia de abono."
+      },
+      "despacho": "**DESPACHO**\n\n**Matrícula:** 1001  \n**Início:** 2027-04-09  \n**Fim:** 2027-04-09  \n\nPara o pedido de abono de folga, as regras aplicáveis são:  \n1. **N6**: O abono é de **1 dia útil** por pedido, limitado ao número de `abonos_restantes`. O pedido não pode cair em fim de semana nem em feriado.  \n\nO pedido é para o dia 9 de abril de 2027, que é uma sexta-feira. Como não há feriados no período e o dia solicitado é um dia útil, o pedido está em conformidade com a regra. Não há violações objetivas registradas.\n\nAutorização (N8): abono deferido automaticamente, sem necessidade de chefia.",
+      "nota_escopo": 0.05,
+      "violacoes": [],
+      "contas_financeiras": null,
+      "alternativa_periodo": null,
+      "tentativas": 1,
+      "rejeicoes": 0,
+      "feedback_chefia": "",
+      "proximo": [],
+      "metricas": {
+        "nos": [
+          "receber",
+          "proteger_entrada",
+          "extrair",
+          "identificar_servidor",
+          "calcular_periodo",
+          "financeiro",
+          "escala",
+          "normas",
+          "consolidar",
+          "redigir_despacho",
+          "validar",
+          "registrar"
+        ],
+        "segundos_total": 12.72,
+        "mais_lento": [
+          "normas",
+          3.993608
+        ],
+        "tokens_total": 4458
+      }
+    },
+    "C9_divergencia": {
+      "caminho": [
+        "receber",
+        "proteger_entrada",
+        "extrair",
+        "pedir_dados"
+      ],
+      "resultado": "pediu_dados",
+      "protocolo": null,
+      "decisao": null,
+      "pedido": {
+        "tipo": "ferias",
+        "matricula": "1002",
+        "data_inicio": null,
+        "data_fim": null,
+        "dias_vendidos": 0,
+        "destino": null,
+        "tipo_destino": null,
+        "justificativa": "Pedido de férias com venda de dias."
+      },
+      "despacho": "Para seguir, informe a matrícula e as datas exatas (AAAA-MM-DD).",
+      "nota_escopo": 0.05,
+      "violacoes": [],
+      "contas_financeiras": null,
+      "alternativa_periodo": null,
+      "tentativas": 0,
+      "rejeicoes": 0,
+      "feedback_chefia": "",
+      "proximo": [],
+      "metricas": {
+        "nos": [
+          "receber",
+          "proteger_entrada",
+          "extrair",
+          "pedir_dados"
+        ],
+        "segundos_total": 2.83,
+        "mais_lento": [
+          "extrair",
+          1.464117
+        ],
+        "tokens_total": 1326
+      }
+    },
+    "C10_zona_cinzenta": {
+      "caminho": [
+        "receber",
+        "proteger_entrada",
+        "extrair",
+        "pedir_dados"
+      ],
+      "resultado": "pediu_dados",
+      "protocolo": null,
+      "decisao": null,
+      "pedido": {
+        "tipo": "outro",
+        "matricula": "1001",
+        "data_inicio": null,
+        "data_fim": null,
+        "dias_vendidos": 0,
+        "destino": null,
+        "tipo_destino": null,
+        "justificativa": "Meu pai foi internado e eu queria ficar com ele alguns dias."
+      },
+      "despacho": "Para seguir, informe a matrícula e as datas exatas (AAAA-MM-DD).",
+      "nota_escopo": 0.55,
+      "violacoes": [],
+      "contas_financeiras": null,
+      "alternativa_periodo": null,
+      "tentativas": 0,
+      "rejeicoes": 0,
+      "feedback_chefia": "",
+      "proximo": [],
+      "metricas": {
+        "nos": [
+          "receber",
+          "proteger_entrada",
+          "extrair",
+          "pedir_dados"
+        ],
+        "segundos_total": 2.31,
+        "mais_lento": [
+          "extrair",
+          1.41784
+        ],
+        "tokens_total": 1355
+      }
+    },
+    "C11_diaria_exterior": {
+      "caminho": [
+        "receber",
+        "proteger_entrada",
+        "extrair",
+        "identificar_servidor",
+        "calcular_periodo",
+        "escala",
+        "financeiro",
+        "normas",
+        "consolidar",
+        "redigir_despacho",
+        "validar",
+        "aprovacao_chefia",
+        "registrar"
+      ],
+      "resultado": "registrado",
+      "protocolo": "ec67dba1",
+      "decisao": "deferido",
+      "pedido": {
+        "tipo": "diaria",
+        "matricula": "1003",
+        "data_inicio": "2027-06-08",
+        "data_fim": "2027-06-11",
+        "dias_vendidos": 0,
+        "destino": "Buenos Aires",
+        "tipo_destino": "exterior",
+        "justificativa": "Viagem a serviço para um congresso."
+      },
+      "despacho": "**Despacho:**\n\n**Matrícula:** 1003  \n**Período:** 2027-06-08 a 2027-06-11  \n**Decisão:** Deferido  \n**Normas Aplicáveis:** N7  \n\n### Informações do Pedido:\n- **Tipo de Pedido:** Diária\n- **Destino:** Buenos Aires (exterior)\n- **Dias Corridos:** 4\n- **Pernoites:** 3\n\n### Cálculo das Diárias:\n- **Quantidade de Diárias:** 3.5\n- **Total em USD:** 1,120.00\n- **Cotação do Dólar:** BRL 4.9923\n- **Total em BRL:** 5,591.38\n\nAutorização (N8): ratificado pela chefia 1011.",
+      "nota_escopo": 0.05,
+      "violacoes": [],
+      "contas_financeiras": {
+        "regra": "N7",
+        "pernoites": 3,
+        "quantidade_diarias": 3.5,
+        "moeda": "USD",
+        "total": 1120.0,
+        "cotacao": 4.9923,
+        "total_brl": 5591.38
+      },
+      "alternativa_periodo": null,
+      "tentativas": 0,
+      "rejeicoes": 0,
+      "feedback_chefia": "",
+      "proximo": [],
+      "metricas": {
+        "nos": [
+          "receber",
+          "proteger_entrada",
+          "extrair",
+          "identificar_servidor",
+          "calcular_periodo",
+          "escala",
+          "normas",
+          "financeiro",
+          "consolidar",
+          "redigir_despacho",
+          "validar",
+          "aprovacao_chefia",
+          "aprovacao_chefia",
+          "registrar"
+        ],
+        "segundos_total": 20.07,
+        "mais_lento": [
+          "financeiro",
+          6.889549
+        ],
+        "tokens_total": 6706
+      }
+    },
+    "C12_inicio_proibido": {
+      "caminho": [
+        "receber",
+        "proteger_entrada",
+        "extrair",
+        "identificar_servidor",
+        "calcular_periodo",
+        "escala",
+        "financeiro",
+        "normas",
+        "consolidar",
+        "redigir_despacho",
+        "validar",
+        "registrar"
+      ],
+      "resultado": "registrado",
+      "protocolo": "7c458e62",
+      "decisao": "indeferido",
+      "pedido": {
+        "tipo": "ferias",
+        "matricula": "1003",
+        "data_inicio": "2027-04-30",
+        "data_fim": "2027-05-14",
+        "dias_vendidos": 0,
+        "destino": null,
+        "tipo_destino": null,
+        "justificativa": ""
+      },
+      "despacho": "**Despacho**\n\n**Matrícula:** 1003  \n**Início:** 2027-04-30  \n**Fim:** 2027-05-14  \n**Decisão:** Indeferido  \n**Normas Aplicáveis:** N1, N2, N3  \n\nO pedido de férias de Carla Nunes foi indeferido devido à violação da norma N3, que proíbe o início das férias em véspera de feriado ou fim de semana. O início em 30 de abril de 2027 é considerado uma véspera de feriado (Dia do Trabalho em 1º de maio). \n\n**Violações:**  \n- N3: As férias não podem começar em 2027-04-30 (véspera de feriado/fim de semana).  \n\nSugere-se um novo período de férias com início em 2027-05-03, que é o retorno após o último afastamento.\n\nAutorização (N8): indeferimento por regra objetiva; não exige aprovação da chefia.",
+      "nota_escopo": 0.05,
+      "violacoes": [
+        "N3: as férias não podem começar em 2027-04-30 (véspera de feriado/fim de semana)"
+      ],
+      "contas_financeiras": null,
+      "alternativa_periodo": {
+        "data_inicio": "2027-05-03",
+        "data_fim": "2027-05-17",
+        "dias_corridos": 15
+      },
+      "tentativas": 1,
+      "rejeicoes": 0,
+      "feedback_chefia": "",
+      "proximo": [],
+      "metricas": {
+        "nos": [
+          "receber",
+          "proteger_entrada",
+          "extrair",
+          "identificar_servidor",
+          "calcular_periodo",
+          "financeiro",
+          "escala",
+          "normas",
+          "consolidar",
+          "redigir_despacho",
+          "validar",
+          "registrar"
+        ],
+        "segundos_total": 15.55,
+        "mais_lento": [
+          "normas",
+          4.353949
+        ],
+        "tokens_total": 5678
+      }
+    }
+  }
+}

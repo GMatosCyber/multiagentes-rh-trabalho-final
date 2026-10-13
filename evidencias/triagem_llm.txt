@@ -1,0 +1,8 @@
+
+[triagem_real_nao] caminho: receber -> proteger_entrada -> triagem_humana -> recusar
+[triagem_real_nao] resultado: recusado  protocolo: None
+[triagem_real_nao] despacho: procure a junta médica ou licença para acompanhar familiar
+
+[triagem_real_sim] caminho: receber -> proteger_entrada -> triagem_humana -> extrair -> pedir_dados
+[triagem_real_sim] resultado: pediu_dados  protocolo: None
+[triagem_real_sim] despacho: Para seguir, informe a matrícula e as datas exatas (AAAA-MM-DD).

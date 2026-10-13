@@ -1,0 +1,4 @@
+C1: nenhuma violação  chefia=False  OK
+C2: nenhuma violação  chefia=True  OK
+C6: ['N5: a equipe já tem 1 afastado(s) no período: 1006 (2027-07-05 a 2027-07-19)']  chefia=False  OK
+C12: ['N3: as férias não podem começar em 2027-04-30 (véspera de feriado/fim de semana)']  chefia=False  OK

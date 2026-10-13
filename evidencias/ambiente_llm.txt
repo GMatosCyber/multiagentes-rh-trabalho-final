@@ -1,0 +1,29 @@
+1) Python e pasta
+  [OK]    Python 3.12.10
+  [OK]    rodando de dentro de aula10/
+  [OK]    ambiente virtual ativo (.venv)
+2) Bibliotecas
+  [OK]    openai-agents 0.22.3
+  [OK]    openai 3.29.0
+  [OK]    mcp 2.3.0
+  [OK]    langgraph 1.2.15
+  [OK]    langgraph-checkpoint-sqlite 3.1.2
+  [OK]    python-dotenv 1.2.4
+  [OK]    httpx 0.28.1
+3) Arquivo .env
+  PROVEDOR=openai
+  [OK]    OPENAI_API_KEY preenchida (credencial omitida)
+  [OK]    TOKEN_REGISTRO definido
+4) Dados do exercício
+  [OK]    9 servidores, 3 afastamentos, 13 feriados locais, 10 regras
+5) MCP Server sobe e lista as tools (sem chamar nenhuma)
+  [OK]    etapa05_mcp_rh.py no ar com 6 tools: consultar_servidor, consultar_escala, consultar_normas, tabela_diarias, consultar_remuneracao, registrar_decisao
+6) Node.js (só para o MCP Inspector da Etapa 5)
+  [OK]    npx encontrado: o MCP Inspector vai funcionar
+7) APIs externas (se falharem, o exercício usa o plano B)
+  [OK]    BrasilAPI (feriados) respondeu
+  [OK]    Frankfurter (câmbio) respondeu
+8) Modelo de linguagem
+  [OK]    openai:gpt-4o-mini respondeu: 'PRONTO'
+
+Resultado: tudo certo, pode começar pelo PASSO_A_PASSO.md.

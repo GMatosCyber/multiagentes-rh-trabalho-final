@@ -1,0 +1,6 @@
+{'matricula': '1002', 'nome': 'Bruno Castro', 'cargo': 'Escrivão', 'equipe': 'Plantão A', 'saldo_ferias_dias': 30, 'abonos_restantes': 3, 'chefia': '1010'}
+{'equipe': 'Cartório', 'tamanho_equipe': 4, 'limite_afastados': 1, 'afastamentos': [{'matricula': '1006', 'equipe': 'Cartório', 'inicio': '2027-07-05', 'fim': '2027-07-19', 'tipo': 'ferias'}]}
+{'tema': 'abono', 'regras': [{'codigo': 'N6', 'tema': 'abono', 'regra': 'Abono (folga) é de **1 dia útil** por pedido, limitado a `abonos_restantes`. Não pode cair em fim de semana nem em feriado.'}]}
+1ª gravação: {'sucesso': True, 'duplicado': False, 'protocolo': 'teste001'}
+2ª gravação: {'sucesso': True, 'duplicado': True, 'protocolo': 'teste001'}  <- deve dizer duplicado
+{"sem_token": {"sucesso": false, "erro": "token inválido"}}  <- depois da Etapa 9.2, deve ser negado

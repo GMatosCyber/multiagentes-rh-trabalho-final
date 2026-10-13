@@ -1,0 +1,14 @@
+conferir.py  (sem LLM)
+
+Etapa 0: Preparação e tabela N1–N10   (onde olhar: PASSO_A_PASSO.md, Etapa 0)
+  [OK]       arquivos de dados/ carregam
+  [OK]       tabela N1–N10 preenchida no ENTREGA.md  (10 de 10)
+
+Etapa 11: Demonstração e entrega   (onde olhar: ENTREGA.md)
+  [OK]       tabela dos 12 casos preenchida no ENTREGA.md
+
+======================================================================
+  Etapa 0    ✅ completa        Preparação e tabela N1–N10
+  Etapa 11   ✅ completa        Demonstração e entrega
+
+  Dica: rode também `python conferir.py --llm` para conferir as partes que dependem do modelo.

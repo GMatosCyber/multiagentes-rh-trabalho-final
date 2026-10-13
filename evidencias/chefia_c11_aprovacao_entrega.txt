@@ -1,0 +1,22 @@
+[modelo] openai:gpt-4o-mini  [guardrail de entrada ligado]
+
+[C11_diaria_exterior] caminho: receber -> proteger_entrada -> extrair -> identificar_servidor -> calcular_periodo -> escala -> financeiro -> normas -> consolidar -> redigir_despacho -> validar -> aprovacao_chefia -> registrar
+[C11_diaria_exterior] resultado: registrado  protocolo: ec67dba1
+[C11_diaria_exterior] despacho: **DESPACHO**
+
+**Matrícula:** 1003  
+**Início:** 2027-06-08  
+**Fim:** 2027-06-11  
+**Decisão:** Deferido  
+
+### Regras Aplicáveis ao Pedido de Diária
+1. **Regra N7:** É permitido solicitar uma diária por dia com pernoite e meia diária no dia do retorno. Para viagens ao exterior, a diária é paga em USD e convertida pela cotação do dia do pedido.
+
+### Cálculo das Diárias
+- **Quantidade de Diárias:** 3.5 (incluindo meio dia no retorno)  
+- **Total em USD:** 1,120.00  
+- **Cotação:** R$ 4.9923  
+- **Total em BRL:** R$ 5,591.38  
+
+### Observações
+O pedido de diária está dentro do período permitido e a justificativa apresentada é válida. A aprovação final depende da chefia N8.

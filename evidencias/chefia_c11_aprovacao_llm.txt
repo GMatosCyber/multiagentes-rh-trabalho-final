@@ -1,0 +1,33 @@
+[modelo] openai:gpt-4o-mini  [guardrail de entrada ligado]
+
+[C11_diaria_exterior] caminho: receber -> proteger_entrada -> extrair -> identificar_servidor -> calcular_periodo -> escala -> financeiro -> normas -> consolidar -> redigir_despacho -> validar -> aprovacao_chefia -> redigir_despacho -> validar -> aprovacao_chefia -> registrar
+[C11_diaria_exterior] resultado: registrado  protocolo: ec67dba1
+[C11_diaria_exterior] despacho: **DESPACHO**
+
+**Matrícula:** 1003  
+**Início:** 2027-06-08  
+**Fim:** 2027-06-11  
+**Decisão:** Deferido  
+**Normas Aplicáveis:** N7  
+
+### Análise do Pedido de Diárias
+
+**Dados do Servidor:**  
+- **Nome:** Carla Nunes  
+- **Cargo:** Agente  
+- **Equipe:** Inteligência  
+
+**Detalhes da Viagem:**  
+- **Destino:** Buenos Aires (Exterior)  
+- **Data de Início:** 08/06/2027  
+- **Data de Fim:** 11/06/2027  
+- **Retorno ao Trabalho:** 14/06/2027  
+
+**Cálculo das Diárias:**  
+- **Quantidade de Diárias:** 3.5  
+- **Valor da Diária em USD:** 320.00  
+- **Total em USD:** 1120.00  
+- **Cotação do Dólar:** 4.9923  
+- **Total em BRL:** 5591.38  
+
+O total a ser pago a Carla Nunes pela viagem a Buenos Aires é de **5591.38 BRL**. O pedido está dentro das normas estabelecidas para diárias e depende da chefia N8.

@@ -1,0 +1,88 @@
+[modelo] openai:gpt-4o-mini
+
+=============== C1_abono_simples
+[1/9] guardrails
+[2/9] extração
+[3/9] cadastro MCP
+[4/9] período e feriados
+[5/9] escala e regras
+[6/9] especialistas
+[7/9] despacho
+[8/9] protocolo
+[9/9] registro MCP
+{
+  "resultado": "registrado",
+  "protocolo": "ae788d33",
+  "despacho": "**Despacho**\n\n**Matrícula**: 1001  \n**Data de Início**: 2027-04-09  \n**Data de Fim**: 2027-04-09  \n\n#### Normas Aplicáveis\n- **Limitação de Dias**: O abono solicitado é de 1 dia útil, dentro do limite permitido, já que a servidora possui 5 abonos restantes.\n- **Restrição de Datas**: O dia 09/04/2027 não é um fim de semana nem feriado, portanto, a condição é atendida.\n\n#### Escala\n- **Conflito N5**: Não há conflitos para a servidora no dia 09/04/2027.\n\nO pedido de abono está em conformidade com as normas e não apresenta conflitos.\n\nAutorização (N8): abono deferido automaticamente, sem necessidade de chefia.",
+  "parecer": "### Parecer sobre o Pedido de Abono\n\n**Servidor**: Ana Ribeiro  \n**Matrícula**: 1001  \n**Data do Pedido**: 09/04/2027\n\n#### Normas Aplicáveis\n- **Limitação de Dias**: O abono solicitado é de 1 dia útil, dentro do limite permitido, já que a servidora possui 5 abonos restantes.\n- **Restrição de Datas**: O dia 09/04/2027 não é um fim de semana nem feriado, portanto, a condição é atendida.\n\n#### Escala\n- **Conflito N5**: Não há conflitos para a servidora no dia 09/04/2027.\n\n### Conclusão\nO pedido de abono está em conformidade com as normas e não apresenta conflitos.",
+  "registro": {
+    "sucesso": true,
+    "duplicado": false,
+    "protocolo": "ae788d33"
+  }
+}
+
+=============== C2_ferias_com_venda
+[1/9] guardrails
+[2/9] extração
+[3/9] cadastro MCP
+[4/9] período e feriados
+[5/9] escala e regras
+[6/9] especialistas
+[tool] consultar_remuneracao(1002) EXECUTOU
+[7/9] despacho
+[8/9] protocolo
+[9/9] registro MCP
+{
+  "resultado": "negado_pelo_server",
+  "protocolo": "b7b6f485",
+  "despacho": "**Despacho**\n\n**Matrícula:** 1002  \n**Período:** 2027-04-12 a 2027-04-26  \n**Decisão:** Deferido  \n**Normas Aplicáveis:** N1, N2, N3  \n\nO pedido de venda de 10 dias de férias do servidor Bruno Castro está em conformidade com as normas, não apresentando violações. O saldo de férias é suficiente e a venda está permitida. O valor total da venda é de R$ 3.166,67.\n\nAutorização (N8): minuta de deferimento; aguarda aprovação da chefia imediata.",
+  "parecer": "### Parecer sobre o Pedido de Venda de Férias\n\n**Servidor:** Bruno Castro  \n**Matrícula:** 1002  \n**Cargo:** Escrivão  \n**Equipe:** Plantão A  \n**Saldo de Férias:** 30 dias  \n**Dias Vendidos:** 10  \n**Período de Férias:** 12/04/2027 a 26/04/2027  \n**Valor Total da Venda:** R$ 3166,67  \n\n#### 1. **Normas Aplicáveis**\n- **N1:** O saldo de férias é suficiente e a venda de 10 dias está permitida.\n- **N2:** A venda de até 10 dias de férias é permitida, e Bruno está dentro dessa norma.\n- **N3:** As férias não começam em um período que infrinja a norma, pois não há feriado ou fim de semana imediatamente anterior.\n\n#### 2. **Escala**\n- **Conflitos:** Não há conflitos N5 para o período solicitado, pois não há afastamentos registrados na equipe Plantão A.\n\n#### 3. **Financeiro**\n- O cálculo da venda de férias está correto, resultando em R$ 3166,67 para 10 dias vendidos.\n\n### Conclusão\nO pedido de venda de 10 dias de férias do servidor Bruno Castro está em conformidade com as normas e não apresenta conflitos na escala. O valor da venda está correto.",
+  "registro": {
+    "sucesso": false,
+    "erro": "aprovador não é a chefia 1010 (N8)"
+  }
+}
+
+=============== C6_conflito_de_escala
+[1/9] guardrails
+[2/9] extração
+[3/9] cadastro MCP
+[4/9] período e feriados
+[5/9] escala e regras
+[6/9] especialistas
+[7/9] despacho
+[8/9] protocolo
+[9/9] registro MCP
+{
+  "resultado": "registrado",
+  "protocolo": "6f1b47d7",
+  "despacho": "**Despacho**\n\n**Matrícula:** 1004  \n**Período Solicitado:** 2027-07-12 a 2027-07-26  \n**Decisão:** Indeferido  \n**Normas Aplicáveis:** N5  \n\nA solicitação de férias do servidor Diego Matos foi indeferida devido à violação da norma N5, que proíbe mais de um afastamento na equipe durante o mesmo período. Há um servidor afastado (matrícula 1006) de 2027-07-05 a 2027-07-19, impossibilitando a concessão das férias solicitadas.\n\n**Sugestão de Período Alternativo:**  \nRecomenda-se que o servidor ajuste a solicitação para o período de 2027-07-20 a 2027-08-03, que não apresenta conflitos.\n\nAutorização (N8): indeferimento por regra objetiva; não exige aprovação da chefia.",
+  "parecer": "### Parecer sobre a Solicitação de Férias\n\n**Servidor:** Diego Matos  \n**Matrícula:** 1004  \n**Período Solicitado:** 12/07/2027 a 26/07/2027\n\n#### Análise das Normas\nA solicitação de férias apresenta uma violação da norma N5, que proíbe mais de um afastamento na equipe durante o mesmo período. Como já há um servidor afastado (matrícula 1006) de 05/07/2027 a 19/07/2027, a concessão das férias solicitadas não é possível.\n\n#### Conflito de Escala\nNão foi encontrado conflito N5 na equipe, portanto, não há necessidade de sugerir um período alternativo para as férias de Diego Matos.\n\n### Conclusão\nA solicitação de férias não pode ser aprovada nas datas solicitadas devido à violação da norma N5. Recomenda-se que o servidor ajuste a solicitação para um período em que não haja sobreposição com outros afastamentos.",
+  "registro": {
+    "sucesso": true,
+    "duplicado": false,
+    "protocolo": "6f1b47d7"
+  }
+}
+
+=============== C11_diaria_exterior
+[1/9] guardrails
+[2/9] extração
+[3/9] cadastro MCP
+[4/9] período e feriados
+[5/9] escala e regras
+[6/9] especialistas
+[7/9] despacho
+[8/9] protocolo
+[9/9] registro MCP
+{
+  "resultado": "negado_pelo_server",
+  "protocolo": "ec67dba1",
+  "despacho": "**Despacho**\n\n**Matrícula:** 1003  \n**Início:** 2027-06-08  \n**Fim:** 2027-06-11  \n**Decisão:** Deferido  \n**Normas Aplicáveis:** N7  \n\nO pedido de diária da servidora Carla Nunes, referente à viagem a Buenos Aires, foi analisado e deferido. O total de diárias é de 3.5, com valor total de 1120.0 USD, equivalente a 5618.48 BRL, considerando a cotação de 5.0165. \n\n\nAtenciosamente.\n\nAutorização (N8): minuta de deferimento; aguarda aprovação da chefia imediata.",
+  "parecer": "Aqui estão os pareceres sobre o pedido de diária da servidora Carla Nunes:\n\n### Parecer sobre Normas\n- **Diária**: O pedido está em conformidade com a regra N7, que permite solicitar uma diária por dia com pernoite e meia diária no dia do retorno. Não há violações identificadas.\n\n### Parecer sobre Escala\n- Não há conflitos N5, e o pedido de diária está em conformidade com as normas estabelecidas.\n\n### Parecer Financeiro\n- **Total de diárias**: 3.5\n- **Valor total em USD**: 1120.0\n- **Cotação do dólar**: 5.0165\n- **Valor total em BRL**: 5618.48\n\nSe precisar de mais informações ou esclarecimentos, estou à disposição!",
+  "registro": {
+    "sucesso": false,
+    "erro": "aprovador não é a chefia 1011 (N8)"
+  }
+}

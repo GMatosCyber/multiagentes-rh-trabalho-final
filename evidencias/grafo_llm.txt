@@ -1,0 +1,135 @@
+[modelo] openai:gpt-4o-mini  [guardrail de entrada ligado]
+
+[C1_abono_simples] caminho: receber -> proteger_entrada -> extrair -> identificar_servidor -> calcular_periodo -> escala -> financeiro -> normas -> consolidar -> redigir_despacho -> validar -> registrar
+[C1_abono_simples] resultado: registrado  protocolo: ae788d33
+[C1_abono_simples] despacho: **Despacho**
+
+**Matrícula:** 1001  
+**Período:** 2027-04-09 a 2027-04-09  
+**Decisão:** Deferido  
+**Normas:**  
+- **Código N6:** O abono (folga) é de 1 dia útil por pedido, limitado ao número de abonos restantes.  
+- **Código N5:** Na mesma equipe, no máximo 30% dos servidores podem estar afastados no mesmo dia.  
+
+**Valores Finais:**  
+- Dias solicitados: 1  
+- Abonos restantes: 5  
+
+**Sugestão no Indeferimento:** A data de início permitida segundo a regra N3 não é válida, pois cai em uma sexta-feira. Sugiro um novo período de igual duração após o último afastamento, que seria de 12 de abril de 2027 a 12 de abril de 2027.
+
+[C2_ferias_com_venda] caminho: receber -> proteger_entrada -> extrair -> identificar_servidor -> calcular_periodo -> escala -> financeiro -> normas -> consolidar -> redigir_despacho -> validar
+[C2_ferias_com_venda] PAUSADO em ('aprovacao_chefia',): Aprova o despacho?
+   chefia imediata: 1010
+PEDIDO: {'tipo': 'ferias', 'matricula': '1002', 'data_inicio': '2027-04-12', 'data_fim': '2027-04-26', 'dias_vendidos': 10, 'destino': None, 'tipo_destino': None, 'justificativa': ''}
+SERVIDOR: {'matricula': '1002', 'nome': 'Bruno Castro', 'cargo': 'Escrivão', 'equipe': 'Plantão A', 'saldo_ferias_dias': 30, 'abonos_restantes': 3, 'chefia': '1010'}
+PERÍODO: {'inicio': '2027-04-12', 'fim': '2027-04-26', 'dias_corridos': 15, 'dias_uteis': 10, 'feriados_no_periodo': {'2027-04-21': 'Tiradentes'}, 'retorno': '2027-04-27', 'inicio_permitido_n3': True, 'fonte_feriados': 'brasilapi'}
+ESCALA DA EQUIPE: {'equipe': 'Plantão A', 'tamanho_equipe': 3, 'limite_afastados': 1, 'afastamentos': []}
+DESPACHO: **Despacho:**
+
+**Matrícula:** 1002  
+**Período:** 2027-04-12 a 2027-04-26  
+**Decisão:** Deferido  
+**Normas Aplicáveis:**  
+1. N1: Saldo de férias suficiente.  
+2. N2: Venda de até 10 dias permitida.  
+3. N3: Início das férias em conformidade.  
+
+**Valores Finais:**  
+- **Dias Vendidos:** 10  
+- **Valor Total da Venda de Férias:** R$ 3.166,67  
+
+**Sugestão no Indeferimento:** Considerando a presença do feriado em 21 de abril e a regra N5, sugiro um novo período de férias após o último afastamento, respeitando o início permitido N3.
+   retome com: python etapa07_grafo.py --retomar C2_ferias_com_venda sim|"nao:motivo" <quem>
+
+[C3_dado_de_saude] caminho: receber -> proteger_entrada -> recusar
+[C3_dado_de_saude] resultado: recusado  protocolo: None
+[C3_dado_de_saude] despacho: Por segurança, não envie CPF por este canal. Reenvie o pedido informando só a matrícula.
+
+[C4_fora_do_escopo] caminho: receber -> proteger_entrada -> recusar
+[C4_fora_do_escopo] resultado: recusado  protocolo: None
+[C4_fora_do_escopo] despacho: Este canal atende apenas pedidos de férias, abono e diária.
+
+[C5_sem_matricula] caminho: receber -> proteger_entrada -> extrair -> pedir_dados
+[C5_sem_matricula] resultado: pediu_dados  protocolo: None
+[C5_sem_matricula] despacho: Para seguir, informe a matrícula e as datas exatas (AAAA-MM-DD).
+
+[C6_conflito_de_escala] caminho: receber -> proteger_entrada -> extrair -> identificar_servidor -> calcular_periodo -> escala -> financeiro -> normas -> consolidar -> redigir_despacho -> validar -> registrar
+[C6_conflito_de_escala] resultado: registrado  protocolo: 6f1b47d7
+[C6_conflito_de_escala] despacho: **Despacho**
+
+**Matrícula:** 1004  
+**Período:** 2027-07-12 a 2027-07-26  
+**Decisão:** Indeferido  
+**Normas:** N5 - No máximo 30% dos servidores da mesma equipe podem estar afastados no mesmo dia.  
+**Valores Finais:** Não se aplica.  
+**Sugestão no Indeferimento:** Recomenda-se um novo período de férias de 2027-07-20 a 2027-08-03, que respeita as regras de afastamento.
+
+[C7_autoaprovacao] caminho: receber -> proteger_entrada -> recusar
+[C7_autoaprovacao] resultado: recusado  protocolo: None
+[C7_autoaprovacao] despacho: Este canal atende apenas pedidos de férias, abono e diária.
+
+[C8_idempotencia] caminho: receber -> proteger_entrada -> extrair -> identificar_servidor -> calcular_periodo -> escala -> financeiro -> normas -> consolidar -> redigir_despacho -> validar -> redigir_despacho -> validar -> registrar
+[C8_idempotencia] resultado: duplicado  protocolo: ae788d33
+[C8_idempotencia] despacho: **Despacho**
+
+**Matrícula:** 1001  
+**Período:** 2027-04-09 a 2027-04-09  
+**Decisão:** Deferido  
+**Normas:**  
+1. **Abono (N6):** O pedido de abono é para 1 dia útil e respeita o limite de abonos restantes. Ana Ribeiro possui 5 abonos, e a data solicitada é um dia útil.  
+2. **Escala (N5):** O limite de afastados na equipe "Plantão A" é de 1 servidor, e não há afastamentos registrados.  
+
+**Valores Finais:** Não se aplica.  
+**Sugestão no Indeferimento:** O pedido de abono não pode ser aprovado, pois a data não é permitida. Sugiro um novo período de igual duração após o último afastamento, de 11 a 11 de abril de 2027 (segunda-feira).
+
+[C9_divergencia] caminho: receber -> proteger_entrada -> extrair -> pedir_dados
+[C9_divergencia] resultado: pediu_dados  protocolo: None
+[C9_divergencia] despacho: Para seguir, informe a matrícula e as datas exatas (AAAA-MM-DD).
+
+[C10_zona_cinzenta] caminho: receber -> proteger_entrada -> extrair -> pedir_dados
+[C10_zona_cinzenta] resultado: pediu_dados  protocolo: None
+[C10_zona_cinzenta] despacho: Para seguir, informe a matrícula e as datas exatas (AAAA-MM-DD).
+
+[C11_diaria_exterior] caminho: receber -> proteger_entrada -> extrair -> identificar_servidor -> calcular_periodo -> escala -> financeiro -> normas -> consolidar -> redigir_despacho -> validar
+[C11_diaria_exterior] PAUSADO em ('aprovacao_chefia',): Aprova o despacho?
+   chefia imediata: 1011
+PEDIDO: {'tipo': 'diaria', 'matricula': '1003', 'data_inicio': '2027-06-08', 'data_fim': '2027-06-11', 'dias_vendidos': 0, 'destino': 'Buenos Aires', 'tipo_destino': 'exterior', 'justificativa': 'Viagem a serviço para um congresso.'}
+SERVIDOR: {'matricula': '1003', 'nome': 'Carla Nunes', 'cargo': 'Agente', 'equipe': 'Inteligência', 'saldo_ferias_dias': 20, 'abonos_restantes': 5, 'chefia': '1011'}
+PERÍODO: {'inicio': '2027-06-08', 'fim': '2027-06-11', 'dias_corridos': 4, 'dias_uteis': 4, 'feriados_no_periodo': {}, 'retorno': '2027-06-14', 'inicio_permitido_n3': True, 'fonte_feriados': 'brasilapi'}
+ESCALA DA EQUIPE: {'equipe': 'Inteligência', 'tamanho_equipe': 2, 'limite_afastados': 1, 'afastamentos': []}
+DESPACHO: **Despacho**
+
+**Matrícula:** 1003  
+**Período:** 2027-06-08 a 2027-06-11  
+**Decisão:** Deferido  
+**Normas Aplicáveis:**  
+- **Código N7:** Diária concedida por dia com pernoite, paga em dólares para viagens ao exterior.  
+- **Código N6:** Abono limitado a 1 dia útil por pedido, respeitando saldo de abonos.  
+
+**Valores Finais:**  
+- **Total em BRL:** 5591.38  
+
+**Sugestão no Indeferimento:** O período solicitado apresenta conflito com o limite de afastados da equipe. Sugiro o novo período de 12 a 15 de junho de 2027, que respeita as regras de afastamento.
+   retome com: python etapa07_grafo.py --retomar C11_diaria_exterior sim|"nao:motivo" <quem>
+
+[C12_inicio_proibido] caminho: receber -> proteger_entrada -> extrair -> identificar_servidor -> calcular_periodo -> escala -> financeiro -> normas -> consolidar -> redigir_despacho -> validar -> registrar
+[C12_inicio_proibido] resultado: registrado  protocolo: 7c458e62
+[C12_inicio_proibido] despacho: **Despacho**
+
+**Matrícula:** 1003  
+**Período:** Início em 2027-04-30 e fim em 2027-05-14  
+**Decisão:** Indeferido  
+**Normas:**  
+1. **N1:** Saldo de férias de 20 dias, podendo ser dividido em até 3 períodos, com mínimo de 5 dias por período.  
+2. **N2:** Venda de até 10 dias de férias permitida, sem ultrapassar o saldo.  
+3. **N3:** Férias não podem começar nos 2 dias que antecedem feriado ou fim de semana.  
+4. **N4:** Antecedência mínima de 30 dias para solicitação de férias.  
+
+**Valores Finais:**  
+- Dias corridos: 15  
+- Dias úteis: 11  
+- Feriados no período: 2027-05-01 (Dia do Trabalho)  
+
+**Justificativa do Indeferimento:** O pedido de férias não pode ser aceito, pois começa em uma data que é véspera de feriado, configurando violação da norma N3.
+
+**Sugestão no Indeferimento:** Recomenda-se um novo período de férias com a mesma duração (15 dias corridos) a partir de 2027-05-22, terminando em 2027-06-05.

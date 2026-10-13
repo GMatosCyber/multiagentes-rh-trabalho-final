@@ -1,0 +1,25 @@
+[modelo] openai:gpt-4o-mini  [guardrail de entrada ligado]
+
+[C2_ferias_com_venda] caminho: receber -> proteger_entrada -> extrair -> identificar_servidor -> calcular_periodo -> escala -> financeiro -> normas -> consolidar -> redigir_despacho -> validar -> aprovacao_chefia -> redigir_despacho -> validar
+[C2_ferias_com_venda] PAUSADO em ('aprovacao_chefia',): Aprova o despacho?
+   chefia imediata: 1010
+PEDIDO: {'tipo': 'ferias', 'matricula': '1002', 'data_inicio': '2027-04-12', 'data_fim': '2027-04-26', 'dias_vendidos': 10, 'destino': None, 'tipo_destino': None, 'justificativa': ''}
+SERVIDOR: {'matricula': '1002', 'nome': 'Bruno Castro', 'cargo': 'Escrivão', 'equipe': 'Plantão A', 'saldo_ferias_dias': 30, 'abonos_restantes': 3, 'chefia': '1010'}
+PERÍODO: {'inicio': '2027-04-12', 'fim': '2027-04-26', 'dias_corridos': 15, 'dias_uteis': 10, 'feriados_no_periodo': {'2027-04-21': 'Tiradentes'}, 'retorno': '2027-04-27', 'inicio_permitido_n3': True, 'fonte_feriados': 'brasilapi'}
+ESCALA DA EQUIPE: {'equipe': 'Plantão A', 'tamanho_equipe': 3, 'limite_afastados': 1, 'afastamentos': []}
+DESPACHO: **Despacho**
+
+**Matrícula:** 1002  
+**Período:** 2027-04-12 a 2027-04-26  
+**Decisão:** Deferido  
+**Normas Aplicáveis:** N1, N2, N3  
+
+O pedido de férias de Bruno Castro está em conformidade com as normas, possuindo saldo suficiente de 30 dias e respeitando o limite de venda de 10 dias. O início das férias não conflita com o feriado de Tiradentes.  
+
+**Contas Financeiras:**  
+- **Dias Vendidos:** 10  
+- **Venda Total em BRL:** R$ 3.166,67  
+- **Dias Corridos Gozados:** 15  
+
+O retorno ao trabalho está agendado para 2027-04-27. O deferimento está sujeito à confirmação da chefia N8. Não há violações registradas.
+   retome com: python etapa07_grafo.py --retomar C2_ferias_com_venda sim|"nao:motivo" <quem>

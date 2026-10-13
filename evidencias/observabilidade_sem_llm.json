@@ -1,0 +1,24 @@
+{
+  "nos": [
+    "receber",
+    "proteger_entrada",
+    "extrair",
+    "identificar_servidor",
+    "calcular_periodo",
+    "escala",
+    "normas",
+    "financeiro",
+    "consolidar",
+    "redigir_despacho",
+    "validar",
+    "aprovacao_chefia",
+    "aprovacao_chefia",
+    "registrar"
+  ],
+  "segundos_total": 3.28,
+  "mais_lento": [
+    "financeiro",
+    0.86463
+  ],
+  "tokens_total": 0
+}
